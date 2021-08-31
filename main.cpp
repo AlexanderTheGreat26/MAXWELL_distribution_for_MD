@@ -70,7 +70,7 @@ int main () {
                                                                              distribution_function));
             std::string name = analyzed_data_files_name + '.' + toString(i);
             data_file_creation(name, data);
-            data_file_creation(name + '.' + "anal", distribution_function);
+            data_file_creation(name + '.' + "analytic", distribution_function);
             plots(analyzed_data_files_name, i);
         //}
     }
@@ -283,7 +283,7 @@ void plots (const std::string& name, int& time_step) {
                                       "set key off",
                                       "set border 4095",
                                       "plot \'" + name + "." + toString(time_step) + "\' using 2:1 w boxes,\
-                                      \'" + name + "." + toString(time_step) + "." + "anal" + "\' using 1:2 with lines"};
+                                      \'" + name + "." + toString(time_step) + "." + "analytic" + "\' using 1:2 with lines"};
     for (const auto& it : stuff)
         fprintf(gp, "%s\n", it.c_str());
     pclose(gp);
