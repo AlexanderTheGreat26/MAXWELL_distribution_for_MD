@@ -63,8 +63,8 @@ int main () {
 //#pragma omp parallel
     {
 
-        //for (int i = 0; i < frames_count; ++i) {
-        int i = 32312;
+        for (int i = 0; i < frames_count; ++i) {
+
             std::vector<std::pair<double, double>> distribution_function;
             std::vector<std::pair<double, double>> data = std::move(analyzer(source_files_name + '.' + toString(i),
                                                                              distribution_function));
@@ -72,7 +72,7 @@ int main () {
             data_file_creation(name, data);
             data_file_creation(name + '.' + "anal", distribution_function);
             plots(analyzed_data_files_name, i);
-        //}
+        }
     }
 }
 
