@@ -131,13 +131,14 @@ std::vector<double> CubicSpline(std::vector<double>& x, std::vector<double>& f, 
 }
 
 const double pi = 3.14159265359;
-const double m = 6.6335e-23;
+const double mass = 6.6335e-23;
 const double k_B = 1.380649e-16;
 const double T = 300;
 
+
 double maxwell_distribution (double& v) {
-    return 4.0*pi*std::pow(v, 2) * std::pow((m / (2.0 * pi * k_B * T)), 3.0/2.0)
-                                    * std::exp(- m * std::pow(v, 2) / (2.0 * k_B * T));
+    return 2.0 * pi * 100 * v * std::pow((mass / (2.0 * pi * k_B * T)), 3.0 / 2.0) *
+           std::exp(- mass * std::pow(v, 2) / (2.0 * k_B * T));
 }
 
 
